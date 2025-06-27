@@ -1,4 +1,4 @@
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Quiz({ currentQuiz }) {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -107,12 +107,14 @@ export default function Quiz({ currentQuiz }) {
           Next Question
         </button>
       ) : (
-        <button
-          onClick={handleConfirm}
-          className="border-1 w-full p-4 bg-purple-600 text-white border-none rounded-[0.75rem]"
-        >
-          Submit Answer
-        </button>
+        optionChoice && (
+          <button
+            onClick={handleConfirm}
+            className="border-1 w-full p-4 bg-purple-600 text-white border-none rounded-[0.75rem]"
+          >
+            Submit Answer
+          </button>
+        )
       )}
     </div>
   );
