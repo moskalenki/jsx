@@ -4,15 +4,14 @@ import Navbar from "./components/Navbar";
 import Heading from "./components/Heading";
 import QuizCategories from "./components/QuizCategories";
 import Quiz from "./components/Quiz";
+import quizData from "../data.json";
 
 function App() {
   const [quiz, setQuiz] = useState([]);
   const [currentQuiz, setCurrentQuiz] = useState(null);
 
   useEffect(() => {
-    fetch("data.json")
-      .then((res) => res.json())
-      .then((data) => setQuiz(data));
+    setQuiz(quizData.quizzes);
   }, []);
 
   useEffect(() => {
