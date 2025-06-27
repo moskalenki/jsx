@@ -9,6 +9,7 @@ import quizData from "../data.json";
 function App() {
   const [quiz, setQuiz] = useState([]);
   const [currentQuiz, setCurrentQuiz] = useState(null);
+  const [currentQuizTitle, setCurrentQuizTitle] = useState("");
   const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
@@ -45,7 +46,11 @@ function App() {
   }, [quiz]);
   return (
     <div className="px-6  h-screen">
-      <Navbar isDark={isDark} toggleTheme={toggleTheme} />
+      <Navbar
+        isDark={isDark}
+        toggleTheme={toggleTheme}
+        currentQuiz={currentQuiz}
+      />
       <Heading currentQuiz={currentQuiz} />
       {currentQuiz ? (
         <Quiz currentQuiz={currentQuiz} />
