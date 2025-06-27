@@ -47,7 +47,7 @@ export default function Quiz({ currentQuiz }) {
             <p className="text-grey-500 text-[0.875rem] mb-4">
               Question {currentQuestionIndex + 1} of {questions.length}
             </p>
-            <h2 className="text-[#313E51] text-[1.25rem] font-semibold tracking-[-0.55px] leading-6">
+            <h2 className="text-[1.25rem] font-semibold tracking-[-0.55px] leading-6 text-text-primary">
               {currentQuizQuestion.question}
             </h2>
           </div>
@@ -67,10 +67,13 @@ export default function Quiz({ currentQuiz }) {
                   ? "border-red-500 border-3"
                   : ""
               }
-            flex items-center mb-4 h-[4.5rem] p-4 rounded-[0.75rem] text-[#313E51] font-semibold w-full my-2 cursor-pointer bg-white drop-shadow-2xl
+            flex items-center mb-4 h-[4.5rem] p-4 rounded-[0.75rem] font-semibold w-full my-2 cursor-pointer drop-shadow-2xl bg-surface text-text-primary
             `}
               >
-                <span className="mr-4 bg-grey-50 text-grey-500 px-5 py-3 rounded-lg border-none">
+                <span
+                  className="mr-4 px-5 py-3 rounded-lg border-none text-text-secondary"
+                  style={{ backgroundColor: "var(--color-surface-hover)" }}
+                >
                   {letters[index]}
                 </span>
                 <span className="text-left">{option}</span>
@@ -79,13 +82,16 @@ export default function Quiz({ currentQuiz }) {
               <button
                 key={index}
                 onClick={() => userChoice(option)}
-                className={`flex items-center mb-4  h-[4.5rem] p-4 rounded-[0.75rem] text-[#313E51] font-semibold w-full my-2 cursor-pointer bg-white drop-shadow-2xl ${
+                className={`flex items-center mb-4 h-[4.5rem] p-4 rounded-[0.75rem] font-semibold w-full my-2 cursor-pointer drop-shadow-2xl bg-surface text-text-primary  ${
                   option === optionChoice
-                    ? "border-3 border-purple-600"
+                    ? "border-3 border-primary"
                     : "border-1 border-transparent"
                 }`}
               >
-                <span className="mr-4 bg-grey-50 text-grey-500 px-5 py-3 rounded-lg border-none">
+                <span
+                  className="mr-4 px-5 py-3 rounded-lg border-none text-text-secondary"
+                  style={{ backgroundColor: "var(--color-surface-hover)" }}
+                >
                   {letters[index]}
                 </span>
                 <span className="text-left">{option}</span>
@@ -96,13 +102,13 @@ export default function Quiz({ currentQuiz }) {
       )}
 
       {gameEnd ? (
-        <button className="border-1 w-full p-4 bg-purple-600 text-white border-none rounded-[0.75rem]">
+        <button className="border-1 w-full p-4 text-white border-none rounded-[0.75rem] bg-primary">
           Play Again
         </button>
       ) : playerSubmitted ? (
         <button
           onClick={displayNextQuestion}
-          className="border-1 w-full p-4 bg-purple-600 text-white border-none rounded-[0.75rem]"
+          className="border-1 w-full p-4 text-white border-none rounded-[0.75rem] bg-primary"
         >
           Next Question
         </button>
@@ -110,7 +116,7 @@ export default function Quiz({ currentQuiz }) {
         optionChoice && (
           <button
             onClick={handleConfirm}
-            className="border-1 w-full p-4 bg-purple-600 text-white border-none rounded-[0.75rem]"
+            className="border-1 w-full p-4 text-white border-none rounded-[0.75rem] bg-primary"
           >
             Submit Answer
           </button>

@@ -3,30 +3,28 @@
 @theme {
   --font-family-sans: "Rubik", ui-sans-serif, system-ui, sans-serif;
 
-  --color-white: #ffffff;
-  --color-black: #000000;
+  --color-background: #f4f6fa;
+  --color-surface: #ffffff;
+  --color-text-primary: #313e51;
+  --color-text-secondary: #626c7f;
+  --color-text-muted: #abc1e1;
+  --color-border: #edf1f9;
+  --color-border-light: #ebf0ff;
 
-  --color-grey-500: #626c7f;
-  --color-grey-50: #f4f6fa;
+  --color-primary: #a729f5;
+  --color-primary-light: #f6e7ff;
+  --color-accent: #306aff;
+  --color-accent-light: #ebf0ff;
 
-  --color-blue-950: #2d3949;
-  --color-blue-900: #313e51;
-  --color-blue-850: #3b4d66;
-  --color-blue-500: #306aff;
-  --color-blue-300: #abc1e1;
-  --color-blue-100: #edf1f9;
-  --color-blue-50: #ebf0ff;
+  --color-success: #2fd887;
+  --color-success-light: #e0fdef;
+  --color-warning: #ff7e35;
+  --color-warning-light: #fff5ed;
+  --color-error: #ee5454;
 
-  --color-green-500: #2fd887;
-  --color-green-100: #e0fdef;
-
-  --color-purple-600: #a729f5;
-  --color-purple-100: #f6e7ff;
-
-  --color-orange-400: #ff7e35;
-  --color-orange-50: #fff5ed;
-
-  --color-red-500: #ee5454;
+  --color-surface-border: #edf1f9;
+  --color-question-letters-text: #626c7f;
+  --color-surface-hover: #f6e7ff;
 }
 
 * {
@@ -38,6 +36,9 @@ body {
   margin: 0;
   padding: 0;
   position: relative;
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 body::before {
@@ -50,4 +51,25 @@ body::before {
   background: url("../src/assets/images/pattern-background-mobile-light.svg");
   opacity: 0.5;
   z-index: -1;
+  transition: opacity 0.3s ease;
+}
+
+body.dark {
+  --color-background: #3b4d66;
+  --color-surface: #3b4d66;
+  --color-surface-hover: #2d3949;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #abc1e1;
+  --color-text-muted: #626c7f;
+  --color-border: #3b4d66;
+  --color-border-light: #313e51;
+  --color-surface-border: rgba(0, 0, 0, 0.3);
+}
+
+body.dark::before {
+  opacity: 0.5;
+  background: url("../src/assets/images/pattern-background-mobile-dark.svg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
