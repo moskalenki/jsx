@@ -9,7 +9,6 @@ import quizData from "../data.json";
 function App() {
   const [quiz, setQuiz] = useState([]);
   const [currentQuiz, setCurrentQuiz] = useState(null);
-  const [currentQuizTitle, setCurrentQuizTitle] = useState("");
   const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
@@ -22,6 +21,10 @@ function App() {
       setIsDark(true);
     }
   }, []);
+
+  function clearCurrentQuiz() {
+    setCurrentQuiz(null);
+  }
 
   useEffect(() => {
     if (isDark) {
@@ -37,13 +40,6 @@ function App() {
     setIsDark(!isDark);
   };
 
-  useEffect(() => {
-    console.log(currentQuiz);
-  }, [currentQuiz]);
-
-  useEffect(() => {
-    console.log(quiz);
-  }, [quiz]);
   return (
     <div className="px-6  h-screen">
       <Navbar
@@ -53,7 +49,7 @@ function App() {
       />
       <Heading currentQuiz={currentQuiz} />
       {currentQuiz ? (
-        <Quiz currentQuiz={currentQuiz} />
+        <Quiz currentQuiz={currentQuiz} clearCurrentQuiz={clearCurrentQuiz} />
       ) : (
         <QuizCategories quiz={quiz} onQuizSelect={setCurrentQuiz} />
       )}

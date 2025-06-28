@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
-export default function Quiz({ currentQuiz }) {
+export default function Quiz({ currentQuiz, clearCurrentQuiz }) {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [optionChoice, setOptionChoice] = useState("");
   const questions = currentQuiz.questions;
@@ -33,9 +33,14 @@ export default function Quiz({ currentQuiz }) {
     }
   }
 
-  useEffect(() => {
-    console.log("opt:", optionChoice);
-  }, [optionChoice]);
+  function resetQuiz() {
+    setCurrentQuestionIndex(0);
+    setOptionChoice("");
+    setPlayerSubmitted(false);
+    setScore(0);
+    setGameEnd(false);
+    setIsAnswerCorrect(null);
+  }
 
   return (
     <div>
@@ -124,7 +129,13 @@ export default function Quiz({ currentQuiz }) {
       )}
 
       {gameEnd ? (
-        <button className="border-1 w-full p-4 text-white border-none rounded-[0.75rem] bg-primary">
+        <button
+          onClick={() => {
+            resetQuiz();
+            clearCurrentQuiz();
+          }}
+          className="border-1 w-full p-4 text-white border-none rounded-[0.75rem] bg-primary"
+        >
           Play Again
         </button>
       ) : playerSubmitted ? (
