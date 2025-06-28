@@ -50,6 +50,7 @@ body::before {
   bottom: 0;
   background: url("../src/assets/images/pattern-background-mobile-light.svg");
   z-index: -1;
+  opacity: 0.95;
   transition: opacity 0.3s ease;
 }
 
