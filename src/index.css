@@ -7,7 +7,7 @@
   --color-surface: #ffffff;
   --color-text-primary: #313e51;
   --color-text-secondary: #626c7f;
-  --color-text-muted: #abc1e1;
+   --color-text-muted: #626c7f;
   --color-border: #edf1f9;
   --color-border-light: #ebf0ff;
 
@@ -52,6 +52,9 @@ body::before {
   z-index: -1;
   opacity: 0.95;
   transition: opacity 0.3s ease;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 body.dark {
@@ -60,7 +63,8 @@ body.dark {
   --color-surface-hover: #2d3949;
   --color-text-primary: #ffffff;
   --color-text-secondary: #abc1e1;
-  --color-text-muted: #626c7f;
+   --color-text-muted: #abc1e1;
+ 
   --color-border: #3b4d66;
   --color-border-light: #313e51;
   --color-surface-border: rgba(0, 0, 0, 0.3);
@@ -72,4 +76,5 @@ body.dark::before {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  transition: opacity 0.3s ease;
 }

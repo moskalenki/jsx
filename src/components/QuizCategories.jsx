@@ -3,7 +3,6 @@ import Category from "./Category";
 export default function QuizCategories({ quiz, onQuizSelect }) {
   const quizzes = quiz?.quizzes || quiz || [];
 
-
   function handleCategoryClick(title) {
     const selectedQuiz = quizzes.find((q) => q.title === title);
     onQuizSelect(selectedQuiz);
@@ -14,7 +13,7 @@ export default function QuizCategories({ quiz, onQuizSelect }) {
   }
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-4 lg:w-1/2">
       {quizzes.map((q, index) => (
         <Category key={index} q={q} onCategoryClick={handleCategoryClick} />
       ))}

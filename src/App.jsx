@@ -41,18 +41,25 @@ function App() {
   };
 
   return (
-    <div className="px-6  h-screen">
-      <Navbar
-        isDark={isDark}
-        toggleTheme={toggleTheme}
-        currentQuiz={currentQuiz}
-      />
-      <Heading currentQuiz={currentQuiz} />
-      {currentQuiz ? (
-        <Quiz currentQuiz={currentQuiz} clearCurrentQuiz={clearCurrentQuiz} />
-      ) : (
-        <QuizCategories quiz={quiz} onQuizSelect={setCurrentQuiz} />
-      )}
+    <div className="px-6 min-h-screen lg:px-0 lg:py-16">
+      <div className="mx-auto lg:max-w-[80rem]">
+        <Navbar
+          isDark={isDark}
+          toggleTheme={toggleTheme}
+          currentQuiz={currentQuiz}
+        />
+        <div className="lg:flex lg:flex-row lg:gap-16 lg:items-start">
+          <Heading currentQuiz={currentQuiz} />
+          {currentQuiz ? (
+            <Quiz
+              currentQuiz={currentQuiz}
+              clearCurrentQuiz={clearCurrentQuiz}
+            />
+          ) : (
+            <QuizCategories quiz={quiz} onQuizSelect={setCurrentQuiz} />
+          )}
+        </div>
+      </div>
     </div>
   );
 }
