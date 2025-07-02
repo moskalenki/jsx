@@ -42,7 +42,7 @@ function App() {
 
   return (
     <div className="px-6 min-h-screen lg:px-0 lg:py-16">
-      <div className="mx-auto lg:max-w-[80rem]">
+      <div className="mx-auto lg:max-w-[80rem] md:p-12">
         <Navbar
           isDark={isDark}
           toggleTheme={toggleTheme}

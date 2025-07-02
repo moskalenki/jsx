@@ -44,14 +44,14 @@ export default function Quiz({ currentQuiz, clearCurrentQuiz }) {
   return (
     <>
       {gameEnd ? (
-        <div className="lg:flex lg:flex-row lg:gap-16 2 lg:w-full">
-          <div className="w-full mt-8 mb-10 lg:w-1/2 lg:pr-8 lg:mb-0 lg:mt-0  lg:w-1/2">
+        <div className="lg:flex lg:flex-row lg:gap-16 2 lg:w-full  md:p-16 lg:p-0 md:w-[540px] md:m-auto sm:-w[327px]  lg:p-16 w-[327px] m-auto">
+          <div className="w-full mt-8 mb-10 lg:w-1/2 lg:pr-8 lg:mb-0 lg:mt-0  lg:w-1/2 ">
             <p className="flex flex-col text-[2.5rem] font-light lg:text-[4rem] lg:leading-[1.1]">
               Quiz completed<span className="font-medium">You scored...</span>
             </p>
           </div>
           <div className="w-full lg:w-1/2">
-            <div className="p-8 rounded-[0.75rem] bg-background shadow-xl lg:h-[512px] lg:p-[3rem]">
+            <div className="p-8 rounded-[0.75rem] bg-background shadow-xl lg:h-[512px] lg:p-[3rem] shadow-xl shadow-gray">
               <div className="flex items-center justify-center m-auto mb-4 lg:mb-10">
                 <img
                   src={currentQuiz?.icon}
